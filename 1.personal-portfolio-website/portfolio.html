@@ -7,9 +7,9 @@
 		<link rel="stylesheet" href="portfolio.css">
 		<script src="portfolio.js"></script>
 	</head>
-	<body>
+	<body style ="background-color: white;">
 		<!-- Header section -->
-		<header>
+		<header style="background-color: lightblue;">
 			<nav>
 				<ul>
 					<li><a href="#About">About</a></li>
@@ -20,33 +20,33 @@
 			</nav>
 		</header>
 		<!-- main content section -->
-		<main>
+		<main style="background-color: white;">
 			<!-- index/welcome page content -->
 			<section id="index">
-				<h1>Welcome to my portfolio website</h1>
+				<h1 style="text-color: black;">Welcome to my portfolio website</h1>
 				<p>Here, you can learn about my professional background, my skills, and my accomplishments.</p>
-				<button>Learn more</button>
+				<button style="background-color: green;">Learn more</button>
 			</section>
 			<!--about page content-->
 			<section id="about">
-				<h1>About me.</h1>
+				<h1 style="text-color: black;">About me.</h1>
 				<p>Hi, my name is ALEX OBWOGI and i am a FULLSTACK WEB DEVELOPER, a SOFTWARE ENGINEER and a MOBILE DEVELOPER.</p>
 				<p>I am passionate in developing of websites and mobile applications, i believe with the so said skills above i can do better in the tech industry.</p>
 				<p>You can check some of the projects i have worked on below.</p>
-				<button>Explore my work here</button>
+				<button style="background-color: green;">Explore my work here</button>
 			</section>
 			<!--Projects/works page content-->
 			<section id="projects">
 				<h1>This are my projects</h1>
 				<div class="project">
-					<h2>project 1: Personal portfolio website.</h2>
+					<h2 style="text-color: black;">project 1: Personal portfolio website.</h2>
 					<p>Role: I developed this project alone from scratch</p>
-					<button>Learn more</button>
+					<button style="background-color: green;">Learn more</button>
 				</div>
 			</section>
 			<!--Testimonials page content-->
 			<section id="testimonials">
-				<h1>Testimonials</h1>
+				<h1 style="text-color: black;">Testimonials</h1>
 				<blockquote>
 					<p>Testimonial 1</p>
 					<cite>source 1</cite>
@@ -55,14 +55,18 @@
 			<!--Contact page content-->
 			<section id="contact">
 				<h1>Get in Touch</h1>
-				<form>
-				<label for="name">Name:</label>
-				<input type="text" id="name" name="name" required>
+				<form style="background-color: lightgreen;">
+					<label for="first-name">First Name:</label>
+					<input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>&nbsp;&nbsp;
+					<label for="middle-name">Middle Name:</label>
+					<input type="text" name="middle-name" id="middle-name" placeholder="Enter your middle name" required>&nbsp;&nbsp;
+					<label for="last-name">Last Name:</label>
+					<input type="text" name="last-name" id="last-name" placeholder="Enter your last name" required>&nbsp;&nbsp;
 				<label for="email">Email:</label>
-				<input type="text" id="email" name="email" required>
-				<label for="message">Message:</label>
-				<textarea id="message" name="message" rows="4" cols="40" required></textarea>
-				<button type="submit">Send Message</button>
+				<input type="text" id="email" name="email" placeholder="Enter your email" required><br>
+				<label for="message">Message:</label><br>
+				<textarea id="message" name="message" rows="4" cols="40" required></textarea><br>
+				<button type="submit" style="color: blue;">Send Message</button><br>
 				</form>
 			</section>
 		</main>
