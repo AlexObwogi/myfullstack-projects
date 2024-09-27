@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+		<title>Registration form.</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+}
+.container {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}
+.form {
+	display: block;
+}
+.form.active {
+	display: block;
+}
+.form input {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+}
+.form button {
+	padding: 10px;
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+.toggle-link {
+	margin-top: 10px;
+	display: block;
+	color: #007BFF;
+	cursor: pointer;
+}
+</style>
+	</head>
+	<body>
+		<div class="container">
+		<h1>Register today and have fun in this page.</h1>
+		<p>Welcome!</p>
+		<div id="signUpForm" class="form active">
+		<form action="/register" method="POST">
+		<label for="firstname">First name:</label>&nbsp;&nbsp;
+		<input type="text" id="firstname" name="firstname" placeholder="Enter your first name here" required><br><br>
+		<label for="middlename">Middle name:</label>&nbsp;&nbsp;
+		<input type="text" id="middlename" name="middlename" placeholder="Enter your middle name here" required><br><br>
+		<label for="lastname">Last name</label>&nbsp;&nbsp;
+		<input type="text" id="lastname" name="lastname" placeholder="Enter your last name here" required><br><br>
+		<label for="email">Email:</label>&nbsp;&nbsp;
+		<input type="email" id="email" name="email" placeholder="registration@gmail.com" required><br><br>
+		<label for="password">Password</label>&nbsp;&nbsp;
+		<input type="password" id="password" name="password" placeholder="12345678" required><br><br>
+		<label for="confirm-password">Confirm Password:</label>&nbsp;&nbsp;
+		<input type="password" id="password" name="password" placeholder="12345678" required><br><br>
+		<input type="submit" value="Register">&nbsp;&nbsp;<input type="submit" value="reset">
+		</form>
+		<span class="toggle-link" onlick="showLoginForm()">Already have an account? Login here</span>
+		</div>
+		<div id="loginForm" class="form">
+			<h1>Login</h1>
+			<form action="/login" method="POST">
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" placeholder="Enter your username"><br><br>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+				<button type="submit">Login</button>
+			</form>
+			<span class="toggle-link" onclick="showSignUpForm()">New here? Sign Up</span>
+		</div>
+		</div>
+		<script>
+			function showLoginForm() {
+				document.getElementById('signUpForm').classList.remove('active');
+				document.getElementById('loginForm').classList.add('active');
+			}
+		</script>
+	</body>
+</html>
+
+
