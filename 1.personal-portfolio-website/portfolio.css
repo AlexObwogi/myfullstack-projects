@@ -1,0 +1,35 @@
+head {
+	background-color: lightblue;
+	font-size: 30px;
+	font-family: Arial;
+	color: Black;
+}
+main {
+	background-color: lightblue;
+}
+h1 {
+	color: lightgreen;
+	align: center-left;
+}
+p {
+	font-family: cooper-black;
+	font-size: 20px;
+	background-color: white;
+	color: black;
+	align: center;
+}
+body {
+	background-color: blue;
+}
+button {
+	background-color: red;
+	color: blue;
+	align: center-left;
+}
+form {
+	background-color: lightblue;
+	align: center;
+
+}
+
+
