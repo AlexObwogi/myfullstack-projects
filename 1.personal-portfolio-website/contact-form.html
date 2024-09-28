@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewpoint" content="width=device-width, scale=1.0">
+		<meta name="author" content="Alex Obwogi">
+		<meta name="Decsription" content="Contanct form">
+		<title>Contact form.</title>
+<style>
+body {
+	background-color: lightblue;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	margin: 0;
+	height: 100vh;
+}
+.contact-container {
+	width: 300px;
+	padding: 20px;
+	background-color: lightgrey;
+	border: 2px solid green;
+	border-radius: 10px;
+}
+input {
+	border-radius: 5px;
+	color: black;
+}
+h1 {
+	color: white;
+	align: center;
+}
+.button button{
+	background-color: brown;
+	border-radius: 5px;
+	color: black;
+}
+.button button:hover {
+	background-color: black;
+	color: white;
+}
+textarea {
+	color: black;
+	border: 1px;
+	border-radius: 15px;
+	background-color: lightgrey;
+	width: 90%;
+	height: 90px;
+}
+form {
+	background-color: lightgreen;
+	border: 1px;
+	border-radius: 8px;
+}
+.form-overlay {
+	background-color: black;
+	border: 1px;
+	border-radius: 20px;
+	left: 50%;
+	top: 20%;
+	padding: 25px;
+}
+label {
+	color: white;
+	background-color: black;
+	border: 2px;
+	border-radius: 10px;
+}
+</style>
+</head>
+	<body>
+		<div class="Contact-container">
+			
+		<div class="form-overlay">
+			<h1>Contact Form</h1>
+			<form action="/submit" method="POST">
+			<label for="first-name">First Name:</label>
+			<input type="text" name="first-name" id="first-name" placeholder="Alex" required><br><br>
+			<label for="last-name">Last Name:</label>
+			<input type="text" name="last-name" id="last-name" placeholder="Obwogi" required><br><br>
+			<label for="email">Email:</label>
+			<input type="email" name="email" id="email" placeholder="email@gmail.com"required><br><br>
+			<textarea id="message" name="message" rows="10" cols="80"></textarea>
+			<div class="button">
+				<button type="submit">send message</button>
+			</div><br><br>
+			</form>
+		</div>
+		</div>
+	</body>
+</html>
