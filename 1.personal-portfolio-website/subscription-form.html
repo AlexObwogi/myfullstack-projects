@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Subscription Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .subscription-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .subscription-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .subscription-form input[type="text"],
+        .subscription-form input[type="email"],
+        .subscription-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .subscription-form .preferences {
+            margin: 15px 0;
+        }
+
+        .subscription-form .preferences label {
+            margin-right: 10px;
+        }
+
+        .subscription-form .submit-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .subscription-form .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .message {
+            display: none;
+            margin-top: 15px;
+            color: #28a745;
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .subscription-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="subscription-form">
+        <h2>Subscribe to our Newsletter</h2>
+        <form id="subscribeForm">
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <div class="preferences">
+                <label><input type="checkbox" name="newsletter" checked> Weekly Newsletter</label>
+                <label><input type="checkbox" name="updates"> Product Updates</label>
+                <label><input type="checkbox" name="offers"> Special Offers</label>
+            </div>
+
+            <!-- CAPTCHA placeholder -->
+            <div id="captcha"></div>
+
+            <button type="submit" class="submit-btn">Subscribe Now</button>
+        </form>
+
+        <!-- Message for successful subscription -->
+        <div class="message" id="message">Subscription successful!</div>
+    </div>
+
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            validateForm();
+        });
+
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simple form validation
+            if (name === '' || email === '' || password === '') {
+                alert('All fields are required!');
+                return false;
+            }
+
+            // Email validation
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+            // Password strength check (for example, at least 6 characters)
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return false;
+            }
+
+            // Show success message
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
