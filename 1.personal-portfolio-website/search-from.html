@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Search Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .search-form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-form input[type="text"],
+        .search-form select,
+        .search-form input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .search-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .search-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .suggestions {
+            margin-top: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none; /* Hidden by default */
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-form">
+        <h2>Advanced Search</h2>
+        <form id="advancedSearchForm">
+            <!-- Keyword Input -->
+            <input type="text" id="keyword" name="keyword" placeholder="Enter keyword..." oninput="debouncedSuggest()" required>
+
+            <!-- Category Filter -->
+            <select id="category" name="category">
+                <option value="">Select Category</option>
+                <option value="news">News</option>
+                <option value="blogs">Blogs</option>
+                <option value="videos">Videos</option>
+                <option value="products">Products</option>
+            </select>
+
+            <!-- Date Range Filter -->
+            <input type="date" id="from-date" name="from-date" placeholder="From Date">
+            <input type="date" id="to-date" name="to-date" placeholder="To Date">
+
+            <!-- Search Button -->
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Suggestions Box -->
+        <div id="suggestions" class="suggestions"></div>
+
+        <!-- Placeholder for Results -->
+        <div id="results" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        let timer;  // Timer for debouncing
+        let searchResults = ["Product A", "Blog Post B", "Video C", "News D", "Product E"];  // Mock data for suggestions
+
+        // Debounce function to avoid triggering suggestions on every keystroke
+        function debouncedSuggest() {
+            clearTimeout(timer);
+            timer = setTimeout(showSuggestions, 300); // Wait 300ms after user stops typing
+        }
+
+        // Function to show suggestions
+        function showSuggestions() {
+            const input = document.getElementById('keyword').value.toLowerCase();
+            const suggestionBox = document.getElementById('suggestions');
+            suggestionBox.innerHTML = '';  // Clear previous suggestions
+
+            if (input.length > 0) {
+                const filteredResults = searchResults.filter(item => item.toLowerCase().includes(input));
+
+                if (filteredResults.length > 0) {
+                    suggestionBox.style.display = 'block';  // Show suggestions
+                    filteredResults.forEach(result => {
+                        const div = document.createElement('div');
+                        div.className = 'suggestion-item';
+                        div.innerText = result;
+                        div.onclick = () => {
+                            document.getElementById('keyword').value = result;  // Auto-fill input with suggestion
+                            suggestionBox.style.display = 'none';  // Hide suggestions
+                        };
+                        suggestionBox.appendChild(div);
+                    });
+                } else {
+                    suggestionBox.style.display = 'none';  // Hide if no suggestions
+                }
+            } else {
+                suggestionBox.style.display = 'none';  // Hide if input is empty
+            }
+        }
+
+        // Handle form submission (just mock search results)
+        document.getElementById('advancedSearchForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from refreshing page
+
+            const keyword = document.getElementById('keyword').value;
+            const category = document.getElementById('category').value;
+            const fromDate = document.getElementById('from-date').value;
+            const toDate = document.getElementById('to-date').value;
+
+            // Display search results (mock results for demonstration)
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<p><strong>Searching for:</strong> ${keyword}</p>
+                                    <p><strong>Category:</strong> ${category || 'Any'}</p>
+                                    <p><strong>Date Range:</strong> ${fromDate || 'N/A'} to ${toDate || 'N/A'}</p>
+                                    <p>Displaying results...</p>`;
+        });
+    </script>
+
+</body>
+</html>
+
