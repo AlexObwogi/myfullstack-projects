@@ -1,2 +1,1 @@
-full stack projects
-this are forms and si ple projects to start with
+This are a list of my fullstack projects
