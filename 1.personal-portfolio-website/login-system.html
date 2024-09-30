@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<title>Login system</title>
+<style>
+body {
+	display: flex;
+	overflow-x: hidden;
+	margin: 0;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	line-height; 1.6;
+	padding: 20px;
+	font-family: sans-serif;
+	background-color: #f4f4f4;
+	color: #333;
+}
+.login-system {
+	display: none;
+}
+.active {
+	display: block;
+}
+.social-login img {
+	width: 24px;
+	height: 24px;
+}
+</style>
+</head>
+<body>
+	<!-- Login form -->
+	<div id="login-form" class="login-system active">
+		<h2>Login Here!</h2>
+		<form id="loginForm" action="/login-handler.php" method="POST" enctype="multipart/form-data">
+			<label for="firstname">First Name:</label>
+			<input type="text" name="firstname" id="firstname" placeholder="Enter first name here"required>
+			<label for="lastname">Last Name:</label>
+			<input type="text" name="text" id="text" placeholder="Enter last name here"required>
+			<label for="email">Email:</label>
+			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com"required>
+			<label for="password">Password:</label>
+			<input type="password" name="password" id="password" placeholder="1jk2ubkvç#" required>
+			<button type="submit">Login</button>
+		</form>
+		<div class="register-reset">
+		<a href="#" onclick="showForm('register')">Create account</a>
+		<a href="#" onclick="showForm('reset')">Forgot password</a>
+		</div>
+		<div class="social-login">
+			<p>Or Login with:</p>
+			<button type="button" class="google">
+				<img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="google">Continue with Google
+			</button>
+			<button type="button" class="facebook">
+				<img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="google">Continue with Facebook
+			</button>
+		</div>
+	</div>
+	<!-- Registration form -->
+	<div id="register-form" class="login-system">
+		<div class="back-arrow">
+			<a href="#" onclick="showForm('login')">&larr;back</a>
+		</div>
+		<h2>Register here!</h2>
+		<form id="registerForm" action="registration-handler.php" method="POST" enctype="multipart/form-data">
+			<label for="firstname">First Name:</label>
+			<input type="text" name="firstname" id="firstname" placeholder="Enter your first Name" required>
+			<label for="lastname">Last Name:</label>
+			<input type="text" name="lastname" id="lastname" placeholder="Enter your last Name" required>
+			<label for="email">Email:</label>
+			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com" required>
+			<label for="password">Password:</label>
+			<input type="password" name="password" id="password" placeholder="Enter your password" required>
+			<label for="password">Confirm Password:</label>
+                        <input type="password" name="password" id="password" placeholder="Confirm your password" required>
+			<div class="register">
+				<button type="submit">Register</button>
+				<button type="submit">Next</button>
+			</div>
+		</form>
+		<a href="#" onclick="showForm('login')">Back to Login</a>
+	</div>
+	<!-- Forgot password -->
+	<div id="reset-form" class="login-system">
+		<div class="back-arrow">
+			<a href="#" onclick="showForm('login')">&larr;back</a>
+		</div>
+		<h2>Reset your password!</h2>
+		<form id="resetForm" action="reset-handler.php" method="POST" enctype="multipart/form-data">
+			<input type="email" id="email" name="email" placeholder="Enter Email" required>
+			<div class="reset">
+				<button type="submit">Reset</button>
+			</div>
+		</form>
+		<a href="#" onclick="showForm('login')">Back to Login</a>
+	</div>
+	<script>
+		function showForm(formName) {
+			//hide all forms
+			document.querySelectorAll('.login-system').forEach(form => {
+				form.classList.remove('active');
+			});
+			//show selected form
+			if (formName === 'login') {
+				document.getElementById('login-form').classList.add('active');
+			} else if (formName === 'register') {
+				document.getElementById('register-form').classList.add('active');
+			} else if (formName === 'reset') {
+				document.getElementById('reset-form').classList.add('active');
+			}
+		}
+	</script>
+</body>
+</html>
