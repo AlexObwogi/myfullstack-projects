@@ -18,15 +18,155 @@ body {
 	color: #333;
 }
 .login-system {
+	box-sizing: border-box;
 	display: none;
+	position: relative;
+	text-align: center;
+	padding: 20px;
+	background-color: lightgray;
+	width: 80%;
+	border: none;
+	border-radius: 10px;
 }
+.back-arrow {
+	padding: 20px;
+	width: 40px;
+	height: 40px;
+	top: 30px;
+	left: 20px;
+	position: absolute;
+	border-radius: 50%;
+	display: flex;
+	background-color: lightblue;
+	color: white;
+	text-decoration: none;
+	font-size: 24px;
+	justify-content: center;
+	align-items: center;
+}
+.back-arrow:hover {
+	background-color: darkblue;
+	color: white;
+}
+h2 {
+	padding: 20px;
+	text-align: center;
+	background-color: white;
+	color: black;
+	border-radius: 10px;
+}
+.login-system label {
+	background-color: white;
+	padding: 10px;
+	width: 20%;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+.login-system input {
+	width: 40%;
+	box-sizing: border-box;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: white;
+}
+
 .active {
 	display: block;
 }
-.social-login img {
-	width: 24px;
-	height: 24px;
+.social-login {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: black;
 }
+.social-login .google {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: white;
+	color: black;
+	right: 10px;
+}
+.social-login .facebook {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: white;
+	color: black;
+	left: 10px;
+}
+p {
+	text-align: center;
+	font-size: 15px;
+	background-color: green;
+	color: white;
+	text-weight: bold;
+	border-radius: 10px;
+	padding: 5px;
+}
+.social-login button {
+	padding: 10px;
+	width: 150px;
+	height: 50px;
+	display: flex;
+}
+.social-login img {
+	width: 20px;
+	height: 20px;
+	padding: 10px;
+}
+.register-reset {
+	justify-content: space-between;
+	padding: 10px;
+}
+.register-reset a {
+	text-decoration: none;
+	padding: 10px;
+	justify-content: space-between;
+}
+.login-system button {
+	background-color: blue;
+	color: white;
+	display: block;
+	margin: 0 auto;
+	width: 100px;
+	top: 20px;
+	padding: 10px;
+}
+.login-system button:hover {
+	cursor: pointer;
+	background-color: darkblue;
+}
+			.reset .submit {
+				padding: 10px;
+				border-radius: 10px;
+				width: 100px;
+			}
+			#resetForm {
+				background-color: lightgreen;
+				padding: 10px;
+				width: 100%;
+			}
+			#resetForm button {
+				background-color: blue;
+				color: white;
+				width: 30%;
+			}
+			#resetForm button:hover {
+				background-color: red;
+				color: white;
+			}
+			#resetForm input {
+				width: 80%;
+			}
+			#registerForm button {
+				padding: 20px;
+				justify-content: space-between;
+				border-radius: 10px;
+			}
+			#registerForm {
+				justify-content: center;
+				background-color: lightblue;
+			}
+
+
 </style>
 </head>
 <body>
@@ -35,13 +175,13 @@ body {
 		<h2>Login Here!</h2>
 		<form id="loginForm" action="/login-handler.php" method="POST" enctype="multipart/form-data">
 			<label for="firstname">First Name:</label>
-			<input type="text" name="firstname" id="firstname" placeholder="Enter first name here"required>
+			<input type="text" name="firstname" id="firstname" placeholder="Enter first name here"required><br><br>
 			<label for="lastname">Last Name:</label>
-			<input type="text" name="text" id="text" placeholder="Enter last name here"required>
+			<input type="text" name="text" id="text" placeholder="Enter last name here"required><br><br>
 			<label for="email">Email:</label>
-			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com"required>
+			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com"required><br><br>
 			<label for="password">Password:</label>
-			<input type="password" name="password" id="password" placeholder="1jk2ubkvç#" required>
+			<input type="password" name="password" id="password" placeholder="1jk2ubkvç#" required><br><br>
 			<button type="submit">Login</button>
 		</form>
 		<div class="register-reset">
@@ -52,7 +192,7 @@ body {
 			<p>Or Login with:</p>
 			<button type="button" class="google">
 				<img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="google">Continue with Google
-			</button>
+			</button><br><br>
 			<button type="button" class="facebook">
 				<img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="google">Continue with Facebook
 			</button>
@@ -66,15 +206,15 @@ body {
 		<h2>Register here!</h2>
 		<form id="registerForm" action="registration-handler.php" method="POST" enctype="multipart/form-data">
 			<label for="firstname">First Name:</label>
-			<input type="text" name="firstname" id="firstname" placeholder="Enter your first Name" required>
+			<input type="text" name="firstname" id="firstname" placeholder="Enter your first Name" required><br><br>
 			<label for="lastname">Last Name:</label>
-			<input type="text" name="lastname" id="lastname" placeholder="Enter your last Name" required>
+			<input type="text" name="lastname" id="lastname" placeholder="Enter your last Name" required><br><br>
 			<label for="email">Email:</label>
-			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com" required>
+			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com" required><br><br>
 			<label for="password">Password:</label>
-			<input type="password" name="password" id="password" placeholder="Enter your password" required>
+			<input type="password" name="password" id="password" placeholder="Enter your password" required><br><br>
 			<label for="password">Confirm Password:</label>
-                        <input type="password" name="password" id="password" placeholder="Confirm your password" required>
+			<input type="password" name="password" id="password" placeholder="Confirm your password" required><br><br>
 			<div class="register">
 				<button type="submit">Register</button>
 				<button type="submit">Next</button>
@@ -90,8 +230,8 @@ body {
 		<h2>Reset your password!</h2>
 		<form id="resetForm" action="reset-handler.php" method="POST" enctype="multipart/form-data">
 			<input type="email" id="email" name="email" placeholder="Enter Email" required>
-			<div class="reset">
-				<button type="submit">Reset</button>
+			<div class="reset"><br><br>
+				<button type="submit" class="submit">Reset</button>
 			</div>
 		</form>
 		<a href="#" onclick="showForm('login')">Back to Login</a>
