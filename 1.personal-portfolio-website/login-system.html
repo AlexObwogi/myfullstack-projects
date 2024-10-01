@@ -29,20 +29,19 @@ body {
 	border-radius: 10px;
 }
 .back-arrow {
-	padding: 20px;
-	width: 40px;
-	height: 40px;
-	top: 30px;
+	padding: 10px;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	top: 20px;
 	left: 20px;
-	position: absolute;
 	border-radius: 50%;
-	display: flex;
-	background-color: lightblue;
-	color: white;
+	text-align: center;
+	position: absolute;
+	background-color: white;
 	text-decoration: none;
 	font-size: 24px;
-	justify-content: center;
-	align-items: center;
+	color: red;
 }
 .back-arrow:hover {
 	background-color: darkblue;
@@ -56,13 +55,16 @@ h2 {
 	border-radius: 10px;
 }
 .login-system label {
-	background-color: white;
+	background-color: black;
+	color: white;
 	padding: 10px;
 	width: 20%;
 	box-sizing: border-box;
 	border-radius: 10px;
+	font-weight: bold;
 }
 .login-system input {
+	font-weight: bold;
 	width: 40%;
 	box-sizing: border-box;
 	padding: 10px;
@@ -74,23 +76,28 @@ h2 {
 	display: block;
 }
 .social-login {
+	justify-content: space-between;
 	padding: 10px;
 	border-radius: 10px;
 	background-color: black;
 }
-.social-login .google {
-	padding: 10px;
-	border-radius: 10px;
-	background-color: white;
-	color: black;
-	right: 10px;
+.google {
+	padding: 20px;
+	width: 10px;
+	background-color: transparent;
+	cursor: pointer;
+	position: relative;
+	right: 33px;
+	border-color: transparent;
 }
-.social-login .facebook {
-	padding: 10px;
-	border-radius: 10px;
-	background-color: white;
-	color: black;
-	left: 10px;
+.facebook {
+	padding: 20px;
+	width: 10px;
+	background-color: transparent;
+	cursor: pointer;
+	position: relative;
+	left: 33px;
+	border-color: transparent;
 }
 p {
 	text-align: center;
@@ -101,16 +108,11 @@ p {
 	border-radius: 10px;
 	padding: 5px;
 }
-.social-login button {
-	padding: 10px;
-	width: 150px;
-	height: 50px;
-	display: flex;
-}
 .social-login img {
-	width: 20px;
-	height: 20px;
+	width: 24px;
+	height: 24px;
 	padding: 10px;
+	border-radius: 50%;
 }
 .register-reset {
 	justify-content: space-between;
@@ -121,49 +123,71 @@ p {
 	padding: 10px;
 	justify-content: space-between;
 }
-.login-system button {
+.login{
 	background-color: blue;
 	color: white;
 	display: block;
+	border-radius: 10px;
 	margin: 0 auto;
-	width: 100px;
+	width: 140px;
 	top: 20px;
 	padding: 10px;
 }
-.login-system button:hover {
+.login:hover {
 	cursor: pointer;
 	background-color: darkblue;
 }
+			#loginForm {
+				background-color: green;
+				padding: 20px;
+				width: 96%;
+				border-radius: 10px;
+			}
 			.reset .submit {
 				padding: 10px;
 				border-radius: 10px;
 				width: 100px;
 			}
 			#resetForm {
-				background-color: lightgreen;
+				background-color: white;
 				padding: 10px;
-				width: 100%;
+				width: 98%;
+				border-radius: 10px;
 			}
 			#resetForm button {
-				background-color: blue;
-				color: white;
+				background-color: lightblue;
+				color: black;
+				font-weight: bold;
 				width: 30%;
 			}
 			#resetForm button:hover {
-				background-color: red;
-				color: white;
+				background-color: blue;
+				color: black;
 			}
 			#resetForm input {
 				width: 80%;
 			}
 			#registerForm button {
 				padding: 20px;
+				width: 100px;
+				height: 50px;
+				text-align: center;
+				font-weight: bold;
 				justify-content: space-between;
 				border-radius: 10px;
+				background-color: blue;
+				color: white;
+			}
+			#registerForm button:hover {
+				background-color: darkblue;
 			}
 			#registerForm {
 				justify-content: center;
 				background-color: lightblue;
+				border-radius: 10px;
+			}
+			.register {
+				justify-content: space-between;
 			}
 
 
@@ -182,26 +206,26 @@ p {
 			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com"required><br><br>
 			<label for="password">Password:</label>
 			<input type="password" name="password" id="password" placeholder="1jk2ubkvç#" required><br><br>
-			<button type="submit">Login</button>
+			<button type="submit" class="login">Login</button>
 		</form>
 		<div class="register-reset">
 		<a href="#" onclick="showForm('register')">Create account</a>
-		<a href="#" onclick="showForm('reset')">Forgot password</a>
+		<a href="#" onclick="showForm('reset')">Forgot password?</a>
 		</div>
 		<div class="social-login">
 			<p>Or Login with:</p>
 			<button type="button" class="google">
-				<img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="google">Continue with Google
-			</button><br><br>
+				<img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="google">
+			</button>
 			<button type="button" class="facebook">
-				<img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="google">Continue with Facebook
+				<img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="google">
 			</button>
 		</div>
 	</div>
 	<!-- Registration form -->
 	<div id="register-form" class="login-system">
 		<div class="back-arrow">
-			<a href="#" onclick="showForm('login')">&larr;back</a>
+			<a href="#" onclick="showForm('login')">&larr;</a>
 		</div>
 		<h2>Register here!</h2>
 		<form id="registerForm" action="registration-handler.php" method="POST" enctype="multipart/form-data">
@@ -225,7 +249,7 @@ p {
 	<!-- Forgot password -->
 	<div id="reset-form" class="login-system">
 		<div class="back-arrow">
-			<a href="#" onclick="showForm('login')">&larr;back</a>
+			<a href="#" onclick="showForm('login')">&larr;</a>
 		</div>
 		<h2>Reset your password!</h2>
 		<form id="resetForm" action="reset-handler.php" method="POST" enctype="multipart/form-data">
