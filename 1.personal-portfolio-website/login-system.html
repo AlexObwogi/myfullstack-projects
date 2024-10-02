@@ -253,7 +253,9 @@ p {
 		</div>
 		<h2>Reset your password!</h2>
 		<form id="resetForm" action="reset-handler.php" method="POST" enctype="multipart/form-data">
-			<input type="email" id="email" name="email" placeholder="Enter Email" required>
+			<input type="password" id="nPassword" name="newPassword" placeholder="Enter your new password" required><br><br>
+			<input type="password" id="cPassword" name="confirmPassword" placeholder="Confirm your new password" required><br><br>
+			<input type="email" id="email" name="email" placeholder="Enter Email where confirmation code will be sent" required>
 			<div class="reset"><br><br>
 				<button type="submit" class="submit">Reset</button>
 			</div>
