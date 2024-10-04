@@ -189,6 +189,23 @@ p {
 			.register {
 				justify-content: space-between;
 			}
+			#verificationForm {
+				background: radial-gradient(green, black,white,red);
+			}
+			#verificationForm input {
+				width: 80%;
+			}
+			 #verificationForm button {
+                                padding: 20px;
+                                width: 100px;
+                                height: 50px;
+                                text-align: center;
+                                font-weight: bold;
+                                justify-content: center;
+                                border-radius: 10px;
+                                background-color: blue;
+                                color: white;
+                        }
 
 
 </style>
@@ -197,7 +214,7 @@ p {
 	<!-- Login form -->
 	<div id="login-form" class="login-system active">
 		<h2>Login Here!</h2>
-		<form id="loginForm" action="/login-handler.php" method="POST" enctype="multipart/form-data">
+			<form id="loginForm" action="login-handler.php" method="POST" enctype="multipart/form-data">
 			<label for="firstname">First Name:</label>
 			<input type="text" name="firstname" id="firstname" placeholder="Enter first name here"required><br><br>
 			<label for="lastname">Last Name:</label>
@@ -240,11 +257,12 @@ p {
 			<label for="password">Confirm Password:</label>
 			<input type="password" name="password" id="password" placeholder="Confirm your password" required><br><br>
 			<div class="register">
-				<button type="submit">Register</button>
+						<button type="submit">Register</button>
 				<button type="submit">Next</button>
 			</div>
 		</form>
-		<a href="#" onclick="showForm('login')">Back to Login</a>
+			<a href="#" onclick="showForm('login')">Back to Login</a>
+
 	</div>
 	<!-- Forgot password -->
 	<div id="reset-form" class="login-system">
@@ -257,12 +275,28 @@ p {
 			<input type="password" id="cPassword" name="confirmPassword" placeholder="Confirm your new password" required><br><br>
 			<input type="email" id="email" name="email" placeholder="Enter Email where confirmation code will be sent" required>
 			<div class="reset"><br><br>
-				<button type="submit" class="submit">Reset</button>
+							<button type="submit" class="submit">Reset</button>
 			</div>
 		</form>
 		<a href="#" onclick="showForm('login')">Back to Login</a>
 	</div>
+	<!-- verification form/page -->
+	<div id="verification-form" class="login-system">
+		<div class="back-arrow">
+			<a href="#" onclick="showForm('login')">&larr;</a>
+		</div>
+		<form id="verificationForm" action="verify.php" method="POST">
+			<label for="code">Enter the code sent to your email:</label><br><br>
+			<input type="text" name="code" required><br><br>
+			<button type="submit">Verify</button><br><br>
+		</form>
+	</div>
 	<script>
+		document.getElementById('registerForm').addEventListener('submit', function (event) {
+			event.preventDefault();
+			showForm('verify');
+		});
+
 		function showForm(formName) {
 			//hide all forms
 			document.querySelectorAll('.login-system').forEach(form => {
@@ -275,6 +309,8 @@ p {
 				document.getElementById('register-form').classList.add('active');
 			} else if (formName === 'reset') {
 				document.getElementById('reset-form').classList.add('active');
+			} else if (formName === 'verify') {
+				document.getElementById('verification-form').classList.add('active');
 			}
 		}
 
