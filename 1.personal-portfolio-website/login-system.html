@@ -206,6 +206,10 @@ p {
                                 background-color: blue;
                                 color: white;
                         }
+			 .error {
+				 color: red;
+				 font-size: 12px;
+			 }
 
 
 </style>
@@ -253,9 +257,11 @@ p {
 			<label for="email">Email:</label>
 			<input type="email" name="email" id="email" placeholder="dev.alex@gmail.com" required><br><br>
 			<label for="password">Password:</label>
-			<input type="password" name="password" id="password" placeholder="Enter your password" required><br><br>
+			<input type="password" name="password" id="pPassword" placeholder="Enter your password" required><br>
+			<small class="error" id="passwordError"></small><br><br>
 			<label for="password">Confirm Password:</label>
-			<input type="password" name="password" id="password" placeholder="Confirm your password" required><br><br>
+			<input type="password" name="password" id="conPassword" placeholder="Confirm your password" required><br>
+			<small class="error" id="confirmPasswordError"></small><br><br>
 			<div class="register">
 						<button type="submit">Register</button>
 				<button type="submit">Next</button>
@@ -271,8 +277,10 @@ p {
 		</div>
 		<h2>Reset your password!</h2>
 		<form id="resetForm" action="reset-handler.php" method="POST" enctype="multipart/form-data">
-			<input type="password" id="nPassword" name="newPassword" placeholder="Enter your new password" required><br><br>
-			<input type="password" id="cPassword" name="confirmPassword" placeholder="Confirm your new password" required><br><br>
+			<input type="password" id="nPassword" name="newPassword" placeholder="Enter your new password" required><br>
+			<small class="error" id="passwordError"></small><br><br>
+			<input type="password" id="cPassword" name="confirmPassword" placeholder="Confirm your new password" required><br>
+			<small class="error" id="confirmPasswordError"></small><br><br>
 			<input type="email" id="email" name="email" placeholder="Enter Email where confirmation code will be sent" required>
 			<div class="reset"><br><br>
 							<button type="submit" class="submit">Reset</button>
@@ -313,6 +321,31 @@ p {
 				document.getElementById('verification-form').classList.add('active');
 			}
 		}
+				document.getElementById('registerForm').addEventListener('submit', function(event) {
+			const password = document.getElementById('pPassword').value;
+
+			const confirmPassword = document.getElementById('conPassword').value;
+			const passwordError = document.getElementById('passwordError');
+			const confirmPasswordError = document.getElementById('confirmPasswordError');
+			//Regular Expression for strong password
+			const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%&*?])[A-Za-z\d@$!%*?&]{8,}$/;
+			//clear any previous error messages
+			passwordError.textContent = '';
+			confirmPasswordError.textContent = '';
+			//check of password is strong enough
+			if (!strongPasswordRegex.test(password)) {
+				passwordError.textContent = "Password must be atleast 8 characters, include one uppercase, one lowercase, one number, and one special character.";
+				event.preventDefault(); //prevent from submission
+				return; //if password is not strong
+			}
+			//check if password and confirm password match
+			if (password !== confirmpassword) {
+				confirmPasswordError.textContent = "Passwords don't match";
+				event.preventDefault();
+				return; //if password don't match
+			}
+						showForm('verify');
+			});
 
 	</script>
 </body>
