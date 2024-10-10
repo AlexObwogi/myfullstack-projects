@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Responsive Webpage</title>
+		<link rel="stylesheet" href="responsive-webpage.css">
+	</head>
+	<body>
+		<header>
+				<nav class="navbar">
+					<div class="logo">A responsive Webpage</div>
+					<ul class="nav-links">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#about">About Us</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					<div class="burger">
+						<div class="line1"></div>
+						<div class="line2"></div>
+						<div class="line3"></div>
+					</div>
+				</nav>
+		</header>
+			<main>
+					<section id="home" class="home-section">
+						<h2>Home</h2>
+						<p>This is a fully responsive webpage.</p>
+					</section>
+					<section id="about" class="about-section">
+						<h2>About Us</h2>
+						<p>We are a team of developers, specialized in deisgning responsive webpages.</p>
+					</section>
+					<section id="services" class="services-section">
+						<h2>Our Services</h2>
+						<div class="service-cards">
+							<div class="service-card">
+								<h3>Web Development</h3>
+								<p>We Develop and Design quality, appealing and aesthetic websites.</p>
+							</div>
+							<div class="service-card">
+								<h3>UI/UX Design</h3>
+								<p>We Design aesthetic websites that are client satisfactory.</p>
+							</div>
+							<div class="service-card">
+								<h3>Mobile Applications Development</h3>
+								<p>We develop mobile applications, this applications can work on any devices and addapt to its features.</p>
+							</div>
+						</div>
+					</section>
+					<section id="contact" class="contact-section">
+						<h2>Contact Us</h2>
+						<form id="contactForm">
+							<label for="name">Name:</label>
+							<input type="text" id="name" name="name" required>
+							<label for="email">Email:</label>
+							<input type="email" id="email" name="email" required>
+							<label for="message">Message:</label>
+							<textarea id="message" name="message" required></textarea>
+							<button type="submit">Submit</button>
+						</form>
+					</section>
+			</main>
+			<script src="responsive-webpage.js"></script>
+	</body>
+</html>
+
+
