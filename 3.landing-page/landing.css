@@ -15,7 +15,7 @@ body {
 /* Hero section styling */
 .hero {
     position: relative;
-    background-image: url('images/hero-image.jpg');
+    background-image: url('https://www.bing.com/images/search?view=detailV2&id=E7A59DF768BEEE0D980DAF206940500D832D1305&thid=OIP.DIVsiIUj2mEn9aMi7c2LQwHaE8&mediaurl=https%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2019%2f10%2f720738-agriculture-farm-landscape-nature-sky-countryside-pakistan-field-people.jpg&exph=2561&expw=3840&q=farm+landscapes&simid=607997349460863687&ck=E6A564131A03AE65A132319414DEC149&itb=0&FORM=IVCLIG');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -257,7 +257,7 @@ body {
 }
 /* CTA Section Styling */
 .cta-section {
-    background-image: url('images/farm-background.jpg');
+    background-image: url('https://www.bing.com/images/search?view=detailV2&id=53B94D3D3249EE5F44CC043902C8F2004026C83F&thid=OIP.klFDF6VS0iN10N7aD3hwCAHaE7&mediaurl=https%3a%2f%2fcdn.agdaily.com%2fwp-content%2fuploads%2f2018%2f09%2fbg-corn_field-001-naramit.jpg&exph=1333&expw=2000&q=farm+crops&simid=608012089776692346&ck=6C7C0DC10DB436858D75EC30F386D194&itb=0&FORM=IVCLIG');
     background-size: cover;
     background-position: center;
     padding: 120px 20px;
